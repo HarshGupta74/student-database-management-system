@@ -343,14 +343,15 @@ def generateOTP() :
 def sendotp():
     global msg
     mobile=int(e_mob.get())
-    account_sid ="ACc647ef10d7a5108db8ef1aa643c4e98e"
-    auth_token ="4fd87f058a0bbc42bb0251fa87742845"
+	#Twilio account details
+    account_sid ="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    auth_token ="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     client = Client(account_sid, auth_token)
     msg=generateOTP()
     message = client.messages \
                     .create(
                          body=f"{msg} is your OTP for verification and valid for 10 minutes.",
-                         from_='+15135863924',
+                         from_='xxxxxxxxxxx',#alloted number for messaging
                          to=f"+91{mobile}"
                      )
     res=mb.showinfo("otp","otp sent successfully!")
